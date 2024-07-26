@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "mocha test/scripts/*.js",
-    "test-single": "npx mocha test/scripts/2-users-test.js --timeout 60000"
+    "test-single": "npx mocha test/scripts/1-contacts-test.js --timeout 60000"
   },
   "author": "qaFellas",
   "license": "ISC",
