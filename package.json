@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha test/scripts/*.js",
-    "test-single": "npx mocha test/scripts/1-contacts-test.js --timeout 60000"
+    "test": "mocha test/scripts",
+    "test-single": "npx mocha test/scripts/1-contacts-test.js --timeout 60000",
+     "test-json": "mocha test/scripts --reporter json --reporter-options output=./test-results.json  --timeout 60000 --exit"
   },
   "author": "qaFellas",
   "license": "ISC",

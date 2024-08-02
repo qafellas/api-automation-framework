@@ -41,6 +41,54 @@ class Contacts {
 
     }
 
+    async editExistingContact(firstName, lastName, contactID, authToken){
+        const endpoint = `/contacts/${contactID}`
+
+        const payload = {
+            "firstName": firstName,
+            "lastName": lastName
+        }
+
+        const config = {
+            headers: {
+                "Authorization": `Bearer ${authToken}`
+            }
+        }
+
+        let res
+        try {
+            res = await axios.patch(endpoint, payload, config)
+            return res
+            
+        } catch (error) {
+            console.log(`Error: ${error.response.status}(${error.response.statusText}) - ${error.response.data}`)
+            return error.response
+        }
+
+
+    }
+
+    async deleteContact(contactID, authToken){
+        const endpoint = `/contacts/${contactID}`
+
+        const config = {
+            headers: {
+                "Authorization": `Bearer ${authToken}`
+            }
+        }
+
+        let res
+        try {
+            res = await axios.delete(endpoint, config)
+            return res
+            
+        } catch (error) {
+            console.log(`Error: ${error.response.status}(${error.response.statusText}) - ${error.response.data}`)
+            return error.response
+        }
+
+    }
+
 
 }
 export default new Contacts()
