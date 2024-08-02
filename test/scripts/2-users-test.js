@@ -59,7 +59,7 @@ describe("User Tests", function () {
 
         expect(response.status).to.equal(401)
         expect(response.statusText).to.equal('Unauthorized')
-        expect(response.data.error).to.equal('Please authenticate.')
+        expect(response.data.error).to.equal('Please authenticate..')
     })
 
 
