@@ -57,26 +57,26 @@ jobs:
             echo "Check run URL: ${{ steps.test_report.outputs.url }}"
             echo "TEST_RUN_HTML=${{ steps.test_report.outputs.url_html }}" | tee -a $GITHUB_ENV
 
-    #   - name : Create Json report
-    #     if: always()
-    #     run: node support/slackPayloadGenerator.js
+      - name : Create Json report
+        if: always()
+        run: node support/slackPayloadGenerator.js
 
-    #   - name: Send  JSON report to Slack
-    #     if: always()
-    #     id: slack
-    #     uses: slackapi/slack-github-action@v1.23.0
-    #     with:
-    #           payload-file-path: "./jsonReporter.json"
-    #     env:
-    #           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    #           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+      - name: Send  JSON report to Slack
+        if: always()
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+              payload-file-path: "./jsonReporter.json"
+        env:
+              SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+              SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
 
-    #   - name: Upload Reports
-    #     uses: actions/upload-artifact@v3
-    #     if: success() || failure()
-    #     with:
-    #       name: test-and-coverage-reports
-    #       path: |
-    #           test-results.json
+      - name: Upload Reports
+        uses: actions/upload-artifact@v3
+        if: success() || failure()
+        with:
+          name: test-and-coverage-reports
+          path: |
+              test-results.json
      
