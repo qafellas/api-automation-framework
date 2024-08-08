@@ -1,7 +1,10 @@
 import axios from "axios"
+import dotenv from 'dotenv'
+dotenv.config()
+
 class Contacts {
     constructor() {
-        axios.defaults.baseURL = 'https://thinking-tester-contact-list.herokuapp.com'
+        axios.defaults.baseURL = process.env.BASE_URL
         axios.defaults.headers.common["Content-Type"] = "application/json"
     }
 

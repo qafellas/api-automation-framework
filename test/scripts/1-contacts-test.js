@@ -2,12 +2,15 @@ import { expect } from "chai"
 import axios from "axios"
 import UsersApi from "../api/usersApi.js"
 import ContactApi from "../api/contactsApi.js"
+import dotenv from 'dotenv'
+dotenv.config()
+
 
 describe("Contacts Tests", function () {
     let authToken, contactID
     before("set up", async function () {
-        const userEmail = "john.dewey.113@yahoo.com"
-        const userPassword = "johnWick123."
+        const userEmail = process.env.USER_EMAIL
+        const userPassword = process.env.USER_PASSWORD
         await UsersApi.registerUser("Adam", "Sanchez", userEmail, userPassword)
         const authRes = await UsersApi.getAuthToken(userEmail, userPassword)
         authToken = authRes.token

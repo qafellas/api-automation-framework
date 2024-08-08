@@ -1,7 +1,7 @@
 import axios from "axios"
 class Users {
     constructor() {
-        axios.defaults.baseURL = 'https://thinking-tester-contact-list.herokuapp.com'
+        axios.defaults.baseURL = process.env.BASE_URL
         axios.defaults.headers.common["Content-Type"] = "application/json"
     }
 

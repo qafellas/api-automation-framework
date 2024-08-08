@@ -1,10 +1,12 @@
 import { expect } from "chai"
 import axios from "axios"
 import UsersApi from "../api/usersApi.js"
+import dotenv from 'dotenv'
+dotenv.config()
 
 describe("User Tests", function () {
-    const userEmail = "john.dewey.108@yahoo.com"
-    const userPassword = "johnWick123."
+    const userEmail = process.env.USER_EMAIL
+    const userPassword = process.env.USER_PASSWORD
     let userToken
 
     it("should register a new user", async () => {
